@@ -15,7 +15,7 @@ InstaData is a Streamlit-based web application that allows users to upload datas
 
 ## Project Pipeline
 
-![Alt text](InstaData/assets/InstaData Pipeline.png)
+![Alt text](assets/InstaData Pipeline.png)
 
 ---
 
