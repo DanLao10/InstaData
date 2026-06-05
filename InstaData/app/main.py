@@ -741,7 +741,7 @@ def generate_report_csv():
 
 def read_svgs_and_generate_html_report():
     st.session_state["datarobot_logo_svg"] = read_svg_as_base64(APP_DIR / "DataRobotLogo.svg")
-    st.session_state["customer_logo_svg"] = read_svg_as_base64(APP_DIR / "small_logo.svg")
+    # st.session_state["customer_logo_svg"] = read_svg_as_base64(APP_DIR / "small_logo.svg")
 
     st.session_state["html_content"] = generate_html_report(st.session_state["businessQuestion"],
                                                             st.session_state["sqlCode"],
