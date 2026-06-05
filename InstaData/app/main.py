@@ -17,6 +17,9 @@ import plotly.io as pio
 import base64
 # import snowflake.connector
 from openai import OpenAI
+from pathlib import Path
+
+APP_DIR = Path(__file__).parent
 
 # OpenAI LLM API Key
 api_key=st.secrets.openai_credentials.key
@@ -737,8 +740,8 @@ def generate_report_csv():
 
 
 def read_svgs_and_generate_html_report():
-    st.session_state["datarobot_logo_svg"] = read_svg_as_base64("DataRobotLogo.svg")
-    st.session_state["customer_logo_svg"] = read_svg_as_base64("small_square_placeholder.svg")
+    st.session_state["datarobot_logo_svg"] = read_svg_as_base64(APP_DIR / "DataRobotLogo.svg")
+    st.session_state["customer_logo_svg"] = read_svg_as_base64(APP_DIR / "small_logo.svg")
 
     st.session_state["html_content"] = generate_html_report(st.session_state["businessQuestion"],
                                                             st.session_state["sqlCode"],
@@ -770,8 +773,9 @@ def read_svg(file_path):
 
 @st.cache_data(show_spinner=False)
 def read_svg_as_base64(file_path):
-    with open(file_path, 'rb') as file:
-        return base64.b64encode(file.read()).decode('utf-8')
+    file_path = Path(file_path)
+    with open(file_path, "rb") as file:
+        return base64.b64encode(file.read()).decode("utf-8")
 
 # Callback function to generate Excel content
 @st.cache_data(show_spinner=False)
