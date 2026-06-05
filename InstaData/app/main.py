@@ -855,8 +855,8 @@ def generate_excel_report(businessQuestion, sqlcode, results, fig1, fig2, analys
         return None
 
 def read_svgs_and_generate_excel_report():
-    st.session_state["datarobot_logo_svg"] = read_svg_as_base64("DataRobotLogo.svg")
-    st.session_state["customer_logo_svg"] = read_svg_as_base64("small_square_placeholder.svg")
+    st.session_state["datarobot_logo_svg"] = read_svg_as_base64(APP_DIR / "DataRobotLogo.svg")
+    st.session_state["customer_logo_svg"] = read_svg_as_base64(APP_DIR / "small_square_placeholder.svg")
 
     st.session_state["excel_content"] = generate_excel_report(st.session_state.get("businessQuestion"),
                                                                st.session_state.get("sqlCode"),
