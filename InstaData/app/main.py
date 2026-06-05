@@ -841,7 +841,7 @@ def generate_excel_report(businessQuestion, sqlcode, results, fig1, fig2, analys
         worksheet = writer.book.create_sheet(title="Charts")
         worksheet["A1"] = "Charts are available in the HTML report."
 
-        writer._close()  # Close the writer before accessing the value
+        writer._save()  # Close the writer before accessing the value
         return output.getvalue()
     except Exception as e:
         st.error(f"An error occurred while generating the Excel report: {e}")
