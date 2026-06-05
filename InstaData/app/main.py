@@ -839,16 +839,9 @@ def generate_excel_report(businessQuestion, sqlcode, results, fig1, fig2, analys
 
         # Add Plotly charts as images
         worksheet = writer.book.create_sheet(title="Charts")
-        if fig1:
-            fig1_bytes = fig1.to_image(format="png")
-            img1 = Image(BytesIO(fig1_bytes))
-            worksheet.add_image(img1, "A1")
-        if fig2:
-            fig2_bytes = fig2.to_image(format="png")
-            img2 = Image(BytesIO(fig2_bytes))
-            worksheet.add_image(img2, "A20")
+        worksheet["A1"] = "Charts are available in the HTML report."
 
-        writer._save()  # Close the writer before accessing the value
+        writer._close()  # Close the writer before accessing the value
         return output.getvalue()
     except Exception as e:
         st.error(f"An error occurred while generating the Excel report: {e}")
