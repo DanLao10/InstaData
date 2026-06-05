@@ -2,7 +2,6 @@ import re
 import concurrent.futures
 import os
 import requests
-import openpyxl
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font, Alignment
 from openpyxl.drawing.image import Image
