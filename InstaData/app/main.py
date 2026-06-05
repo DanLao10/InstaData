@@ -512,7 +512,7 @@ def assembleDictionaryParts(parts):
 
 def setup_sidebar():
     with st.sidebar:
-        st.image("logo.png", width=300)
+        # st.image("logo.png", width=300)
         st.write("Welcome to InstaData, your virtual data analyst!")
 
         # st.image("csv_File_Logo.svg", width=45)
